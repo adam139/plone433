@@ -1,0 +1,33 @@
+# Development environment buildout
+# ================================
+
+[buildout]
+parts =
+    instance
+
+
+extends =
+    packages.cfg
+
+
+
+# Development Zope instance. Installs the ``bin/instance`` script
+[instance]
+recipe = plone.recipe.zope2instance
+http-address = 8180
+user = admin:admin
+verbose-security = on
+eggs =
+    ${eggs:main}
+
+    
+#zcml-additional =
+#    <include package="plone.app.async" file="single_db_instance.zcml" />
+
+environment-vars =
+#    ZC_ASYNC_UUID ${buildout:directory}/var/instance-uuid.txt
+    PTS_LANGUAGES zh_CN en zh fr
+    zope_i18n_allowed_languages zh_CN en zh zh-tw fr
+    zope_i18n_compile_mo_files false
+
+

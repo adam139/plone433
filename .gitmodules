@@ -1,0 +1,60 @@
+[submodule "src/my315ok.policy"]
+	path = src/my315ok.policy
+	url = git@github.com:adam139/my315ok.policy.git
+[submodule "src/my315ok.products"]
+	path = src/my315ok.products
+	url = git@github.com:adam139/my315ok.products.git
+[submodule "src/collective.conference"]
+	path = src/collective.conference
+	url = git@github.com:adam139/collective.conference.git
+[submodule "src/collective.portlet.pixviewer"]
+	path = src/collective.portlet.pixviewer
+	url = git@github.com:adam139/collective.portlet.pixviewer.git
+[submodule "src/dexterity.membrane"]
+	path = src/dexterity.membrane
+	url = git@github.com:adam139/dexterity.membrane.git
+[submodule "src/diazotheme.bootstrap"]
+	path = src/diazotheme.bootstrap
+	url = git@github.com:adam139/diazotheme.bootstrap.git
+[submodule "src/my315ok.portlet.embediframe"]
+	path = src/my315ok.portlet.embediframe
+	url = git@github.com:adam139/my315ok.portlet.embediframe.git
+[submodule "src/my315ok.portlet.fetchouterhtml"]
+	path = src/my315ok.portlet.fetchouterhtml
+	url = git@github.com:adam139/my315ok.portlet.fetchouterhtml.git
+[submodule "src/my315ok.portlet.flash"]
+	path = src/my315ok.portlet.flash
+	url = git@github.com:adam139/my315ok.portlet.flash.git
+[submodule "src/my315ok.portlet.footer"]
+	path = src/my315ok.portlet.footer
+	url = git@github.com:adam139/my315ok.portlet.footer.git
+[submodule "src/my315ok.portlet.groupcollection"]
+	path = src/my315ok.portlet.groupcollection
+	url = git@github.com:adam139/my315ok.portlet.groupcollection.git
+[submodule "src/my315ok.portlet.logo"]
+	path = src/my315ok.portlet.logo
+	url = git@github.com:adam139/my315ok.portlet.logo.git
+[submodule "src/my315ok.portlet.onlineservice"]
+	path = src/my315ok.portlet.onlineservice
+	url = git@github.com:adam139/my315ok.portlet.onlineservice.git
+[submodule "src/my315ok.portlet.photocollection"]
+	path = src/my315ok.portlet.photocollection
+	url = git@github.com:adam139/my315ok.portlet.photocollection.git
+[submodule "src/my315ok.portlet.rollitems"]
+	path = src/my315ok.portlet.rollitems
+	url = git@github.com:adam139/my315ok.portlet.rollitems.git
+[submodule "src/my315ok.socialorgnization"]
+	path = src/my315ok.socialorgnization
+	url = git@github.com:adam139/my315ok.socialorgnization.git
+[submodule "src/owasp.policy"]
+	path = src/owasp.policy
+	url = git@github.com:adam139/owasp.policy.git
+[submodule "src/xtshzz.policy"]
+	path = src/xtshzz.policy
+	url = git@github.com:adam139/xtshzz.policy.git
+[submodule "src/my315ok.diazo960"]
+	path = src/my315ok.diazo960
+	url = git@github.com:adam139/my315ok.diazo960.git
+[submodule "src/collective.portlet.bilingualtext"]
+	path = src/collective.portlet.bilingualtext
+	url = git@github.com:adam139/collective.portlet.bilingualtext.git

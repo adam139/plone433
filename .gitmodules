@@ -55,6 +55,3 @@
 [submodule "src/collective.portlet.bilingualtext"]
 	path = src/collective.portlet.bilingualtext
 	url = git@github.com:adam139/collective.portlet.bilingualtext.git
-[submodule "src/diazotheme.bootstrap"]
-	path = src/diazotheme.bootstrap
-	url = git@github.com:adam139/diazotheme.bootstrap.git

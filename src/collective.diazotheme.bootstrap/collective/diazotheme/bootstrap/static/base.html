@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="315okfavicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+ <!--   <link href="dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="http://images.315ok.org/315ok/css/315ok.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="dist/js/html5shiv.js"></script>
+      <script src="dist/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+      <body>
+<header role="banner" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button data-target="#topnav-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../">315OK</a>
+    </div>
+    <nav role="navigation" id="topnav-collapse" class="collapse navbar-collapse">
+      <ul id="nav" class="nav navbar-nav">
+        <li class="active">
+          <a href="../getting-started">快速上手</a>
+        </li>
+        <li>
+          <a href="../css">基础CSS</a>
+        </li>
+        <li>
+          <a href="../components">组件</a>
+        </li>
+        <li>
+          <a href="../javascript">JavaScript插件</a>
+        </li>
+        <li>
+          <a href="../customize">定制</a>
+        </li>
+      </ul>
+      <form id="topsearchbox" class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control search-query" name="SearchableText" placeholder="Search"/>        
+      </div>
+      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>
+</button>
+    </form>      
+      <ul id="secondary-nav" class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="personaltool-menuheader">Dropdown</span><b class="caret"></b></a>
+        <ul class="dropdown-menu" id="personaltool-menu">
+          <li><a href="#">动作</a></li>
+          <li><a href="#">另外动作</a></li>
+          <li><a href="#">其他动作</a></li>
+          <li class="divider"></li>
+          <li><a href="#">带分割符的链接</a></li>
+        </ul>
+        </li>
+      </ul>
+     
+    </nav>
+  </div>
+</header>
+         <div id="container" class="container">
+            <div id="header">
+               <img id="logo" src="img/logo.png"/>
+            </div>
+
+            <div id="main" role="main" class="icons-on">
+               <div>
+                  <ul class="breadcrumb">
+                     <li><a href="#">Home</a><span class="divider">/</span></li>
+                     <li class="active">Plone</li>
+                  </ul>
+               </div>
+               <div id="content-columns">
+                  <div class="row">
+                     <div id="left-column" class="col-md-3">
+                        <div id="left-column-content">
+                        <section>
+                           <h4 class="portlet-header">Navigation</h4>
+                           <div>
+                              <ul class="navTree navTreeLevel0">
+                                 <li class="navTreeItem navTreeTopNode">
+                                 <div>
+                                    <a title="" class="contenttype-plone-site " href="#">
+                                       Home
+                                    </a>
+                                 </div>
+                                 </li>
+                                 <li class="navTreeItem visualNoMarker navTreeFolderish section-news">
+                                 <a title="Site News" class="state-published navTreeFolderish contenttype-folder" href="#">
+                                    <span>News</span>
+                                 </a>
+                                 </li>
+                                 <li class="navTreeItem visualNoMarker navTreeCurrentNode navTreeFolderish section-events">
+                                 <a title="Site Events" class="state-published navTreeCurrentItem navTreeCurrentNode navTreeFolderish contenttype-folder" href="#">
+                                    <span>Events</span>
+                                 </a>
+                                 <ul class="navTree navTreeLevel1">
+                                    <li class="navTreeItem visualNoMarker section-fedora-activity-day">
+                                    <a title="" class="state-private contenttype-event" href="#">
+                                       <span>Fedora Activity Day</span>
+                                    </a>
+                                    </li>
+                                 </ul>
+                                 </li>
+                                 <li class="navTreeItem visualNoMarker navTreeFolderish section-members">
+                                 <a title="Site Users" class="state-published navTreeFolderish contenttype-folder" href="#">
+                                    <span>Users</span>
+                                 </a>
+                                 </li>
+                                 <li class="navTreeItem visualNoMarker navTreeFolderish section-services">
+                                 <a title="" class="state-private navTreeFolderish contenttype-folder" href="#">
+                                    <span>Services</span>
+                                 </a>
+                                 </li>
+                              </ul>
+                           </div>
+                        </section>
+                        </div>
+                     </div>
+                     <div id="center-column">
+                        <div id="center-column-content">
+                        <article>
+                           <div id="content">
+                              <!-- Example row of columns -->
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis erat dolor,
+                              ut tristique ante. Ut rutrum diam et odio interdum luctus. Curabitur convallis
+                              dolor non lacus auctor vitae varius odio dignissim. Pellentesque aliquam
+                              condimentum magna, et placerat orci pretium et. Cras et erat sit amet elit
+                              ultrices scelerisque. Etiam vehicula mauris ac tortor convallis id mollis urna
+                              egestas. Proin lobortis diam sit amet diam ultrices facilisis vitae volutpat
+                              ligula. Quisque nec tellus ac libero pellentesque viverra. Cras at elit justo.
+                              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+                              turpis egestas. Maecenas leo erat, ullamcorper eget venenatis eu, porttitor nec
+                              orci. Praesent rhoncus auctor nulla. Nulla dictum semper ornare.</p>
+                              <p>
+                              Vestibulum volutpat scelerisque accumsan. Aliquam euismod felis eu erat
+                              lobortis vestibulum. Nullam accumsan, orci non dignissim tempus, risus erat
+                              porta dolor, at viverra magna sapien non lacus. Aliquam scelerisque varius
+                              erat, ac placerat felis ultricies quis. Nunc vel imperdiet lorem. Curabitur
+                              consectetur urna in ipsum mollis elementum. Praesent vitae metus justo.
+                              Vestibulum eu ipsum nec justo semper posuere at id lectus. Quisque nulla augue,
+                              congue vitae hendrerit id, euismod nec orci. Class aptent taciti sociosqu ad
+                              litora torquent per conubia nostra, per inceptos himenaeos. Sed feugiat massa
+                              varius libero sodales eget lacinia odio ultrices. Vestibulum ante ipsum primis
+                              in faucibus orci luctus et ultrices posuere cubilia Curae; Duis accumsan
+                              egestas metus id iaculis. Aliquam ut diam massa. Morbi viverra tortor non massa
+                              congue facilisis.</p>
+                              <p>
+                              Suspendisse id condimentum mauris. Curabitur suscipit diam enim, vel
+                              consectetur mi. Curabitur quis est a justo malesuada condimentum laoreet et
+                              orci. Nullam commodo, libero et ultrices interdum, tellus tellus ultrices elit,
+                              id condimentum sapien nisi id nibh. Quisque mattis lectus eget dui ornare eget
+                              eleifend lectus ornare. </p>
+                           </div>
+                        </article>
+                        </div>
+                     </div>
+                     <div id="right-column" class="col-md-3">
+                        <div id="right-column-content">
+                        <section>
+                           <h4 class="portlet-header">Calendar</h4>
+                           <div>
+                              <table summary="Calendar" class="ploneCalendar">
+                                 <caption
+                                    class="hiddenStructure">November</caption>
+                                 <thead>
+                                    <tr
+                                       class="weekdays"><th
+                                          scope="col">Su</th><th
+                                          scope="col">Mo</th><th
+                                          scope="col">Tu</th><th
+                                          scope="col">We</th><th
+                                          scope="col">Th</th><th
+                                          scope="col">Fr</th><th
+                                          scope="col">Sa</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                                    </tr>
+                                    <tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+                                    </tr>
+                                    <tr><td>13</td><td>14</td><td>15</td><td>16</td><td
+                                          class="todaynoevent"><strong>17</strong></td><td>18</td><td>19</td>
+                                    </tr>
+                                    <tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+                                    </tr>
+                                    <tr><td>27</td><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td>
+                                    </tr>
+                                 </tbody>
+
+                              </table>
+                           </div>
+                        </section>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="portletBelowContentManager" class="row">
+                  <div id="portletBelowContentA" class="col-md-4">
+                     <p id="companycode">
+                     <img src="img/inigologo.png"/><br/>
+                     (846624A)</p>
+                  </div>
+                  <div id="portletBelowContentB" class="col-md-4">
+                     <h2>Who are we?</h2>
+                     <p>Inigo Consulting is a Malaysian based fully employee owned
+                     company that
+                     provides consultancy services for non-profits, government agencies and
+                     companies to help them deliver their goals in a cost effective manner.
+                     </p>
+                  </div>
+                  <div id="portletBelowContentC" class="col-md-4">
+
+                     <h2>Contact Us</h2>
+                     <p>Inigo Consulting Sdn Bhd <br/>
+                     B-05-20, Subang Empire SOHO,<br/>
+                     Subang Jaya, Malaysia
+                     </p>
+                     <p>Phone: 0172792765</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div id="portletBelowContentD" class="col-md-offset-1 col-md-10">
+                  </div>
+               </div>
+            <div style="clear:both;display: none;">&nbsp;</div>
+
+            </div>
+
+            <div style="clear:both;display: none">&nbsp;</div>
+            <div class="footer container">
+            	<div class="row">
+                  <div id="portletBelowContentF" class="col-md-offset-2 col-md-8">
+                  </div>            		
+            	</div>            	
+               <div id="portletFooterManager" class="row">
+                  <div id="portletFooterA" class="col-md-2">
+                     Inigo Consulting is a Malaysian based fully employee owned
+                     company that provides consultancy services for non-profits, government agencies and
+                     companies to help them deliver their goals in a cost effective manner.
+                  </div>
+                  <div id="portletFooterB" class="col-md-2">
+                     Inigo Consulting is a Malaysian based fully employee owned
+                     company that provides consultancy services for non-profits, government agencies and
+                     companies to help them deliver their goals in a cost effective manner.
+                  </div>
+                  <div id="portletFooterC" class="col-md-2">
+                     Inigo Consulting is a Malaysian based fully employee owned
+                     company that provides consultancy services for non-profits, government agencies and
+                     companies to help them deliver their goals in a cost effective manner.
+                  </div>
+                  <div id="portletFooterD" class="col-md-2">
+                     Inigo Consulting is a Malaysian based fully employee owned
+                     company that provides consultancy services for non-profits, government agencies and
+                     companies to help them deliver their goals in a cost effective manner.
+                  </div>
+                  <div id="portletFooterE" class="col-md-2">
+                     Inigo Consulting is a Malaysian based fully employee owned
+                     company that provides consultancy services for non-profits, government agencies and
+                     companies to help them deliver their goals in a cost effective manner.
+                  </div>
+                  <div id="portletFooterF" class="col-md-2">
+                     Inigo Consulting is a Malaysian based fully employee owned
+                     company that provides consultancy services for non-profits, government agencies and
+                     companies to help them deliver their goals in a cost effective manner.
+                  </div>
+               </div>
+            </div>
+         </div> <!--! end of #container -->
+
+
+         <!-- JavaScript at the bottom for fast page loading -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--    <script src="dist/js/jquery.js"></script> -->
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>    
+<!--    <script src="dist/js/bootstrap.min.js"></script> -->
+            <div id="site-scripts"></div>
+         </body>
+      </html>

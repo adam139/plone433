@@ -1,0 +1,31 @@
+<configure 
+    xmlns="http://namespaces.zope.org/zope"
+  
+    xmlns:plone="http://namespaces.plone.org/plone"
+
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:grok="http://namespaces.zope.org/grok"    
+    i18n_domain="collective.diazotheme.bootstrap">
+
+
+
+
+  <includeDependencies package="." />
+  <grok:grok package="." />          
+ 
+  <include package="Products.CMFCore" file="permissions.zcml" />
+
+  <plone:static directory="static" type="theme" 
+      name="collective.diazotheme.bootstrap"/>
+  <cmf:registerDirectory name="diazotheme_bootstrap_custom"/>
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.diazotheme.bootstrap"
+      directory="profiles/default"
+      description='Skin overrides for collective.diazotheme.bootstrap'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+   <include package=".browser"/>
+</configure>

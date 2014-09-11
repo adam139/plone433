@@ -1,0 +1,22 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+
+          
+    <browser:viewlet  
+        name="plone.resourceregistries" 
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        template="resourceregistries.pt"
+        layer=".interfaces.IThemeSpecific"         
+        permission="zope2.View" 
+        />
+<!--
+    <browser:viewletManager
+        name="plone.resourceregistries.scripts"
+        provides="Products.ResourceRegistries.interfaces.IHtmlHeadScripts"
+        template="Products.ResourceRegistries.browser.scripts.pt"
+        layer=".interfaces.IThemeSpecific" 
+        permission="zope2.View"
+        />
+        -->
+</configure>	        

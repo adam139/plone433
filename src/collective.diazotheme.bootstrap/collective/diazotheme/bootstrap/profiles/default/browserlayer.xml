@@ -1,0 +1,10 @@
+<layers>
+    
+    <!-- Enable the Diazo960 Theme layer when installed -->
+    
+    <layer
+        name="collective.diazotheme.bootstrap"
+        interface="collective.diazotheme.bootstrap.browser.interfaces.IThemeSpecific"
+        />
+
+</layers>

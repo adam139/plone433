@@ -13,9 +13,6 @@
 [submodule "src/dexterity.membrane"]
 	path = src/dexterity.membrane
 	url = git@github.com:adam139/dexterity.membrane.git
-[submodule "src/diazotheme.bootstrap"]
-	path = src/diazotheme.bootstrap
-	url = git@github.com:adam139/diazotheme.bootstrap.git
 [submodule "src/my315ok.portlet.embediframe"]
 	path = src/my315ok.portlet.embediframe
 	url = git@github.com:adam139/my315ok.portlet.embediframe.git

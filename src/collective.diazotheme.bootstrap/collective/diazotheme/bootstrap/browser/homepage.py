@@ -165,10 +165,12 @@ class HomepageView(grok.View):
                              'sort_order': 'reverse',
                              'sort_on': 'created'})
         brainnum = len(braindata)
-        if brainnum == 0:return out
+        if brainnum == 0:return out        
+
         outhtml = """<div id="%s" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
         """ % (self.carouselid())
+        outhtml2 = '</ol><div class="carousel-inner">'
         for i in range(brainnum):            
             out = """<li data-target='%(carouselid)s' data-slide-to='%(indexnum)s' class='%(active)s'>
             </li>""" % dict(indexnum=str(i),
@@ -176,35 +178,29 @@ class HomepageView(grok.View):
                     active=self.active(i))
                                                
             outhtml = outhtml + out
-        outhtml = outhtml +'</ol><div class="carousel-inner">'
-        
-        for i in range(brainnum):
             objurl = braindata[i].getURL()
             objtitle = braindata[i].Title
-#            objtitle = self.cropTitle(objtitle, 12)
-
-            
-            out = """<div class="%(classes)s">
-      <img src="%(imgsrc)s" alt="%(imgtitle)s"/>
-      <div class="carousel-caption">
-        <h3>%(imgtitle)s</h3>
-      </div>
-    </div>""" % dict(classes="item " + self.active(i),
-                     imgsrc=objurl + "/@@images/image/preview",
-                     imgtitle=objtitle)
-                                               
-            outhtml = outhtml + out
-        outhtml = outhtml +'</div>'        
-        
+            outimg = """<div class="%(classes)s">
+                        <img src="%(imgsrc)s" alt="%(imgtitle)s"/>
+                          <div class="carousel-caption">
+                            <h3>%(imgtitle)s</h3>
+                              </div>
+                                </div>""" % dict(classes="item " + self.active(i),
+                     imgsrc=objurl + "/@@images/image/preview",imgtitle=objtitle)
+            outhtml2 = outhtml2 + outimg                       
+#        outhtml = outhtml +'</ol><div class="carousel-inner">'
+        result = outhtml + outhtml2
         out = """
-        <a class="left carousel-control" href="%(carouselid)s" data-slide="prev">
+        </div><a class="left carousel-control" href="%(carouselid)s" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
   <a class="right carousel-control" href="%(carouselid)s" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>""" % dict(carouselid = "#" + self.carouselid())
-        return outhtml + out               
+        return result + out
+                
+              
 # roll zone
 
     def rollwrapperclass(self):

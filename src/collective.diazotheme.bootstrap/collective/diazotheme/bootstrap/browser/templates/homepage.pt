@@ -8,11 +8,12 @@
 
 <body>
 <metal:left fill-slot="column_one_slot"></metal:left>
-<metal:right fill-slot="column_two_slot"></metal:right>	
+<metal:right fill-slot="column_two_slot"></metal:right>
+	
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
-    	 <div class="container homepage">
+    	 <div id="visual-portal-wrapper" class="container homepage">
        <div class="row">         
          <div class="col-xs-12 col-md-4">
          	<div tal:content="structure python: view.carouselresult()">outer</div>        	

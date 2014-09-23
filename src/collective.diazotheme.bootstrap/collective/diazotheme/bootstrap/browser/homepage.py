@@ -115,6 +115,7 @@ class HomepageView(grok.View):
         else:
             return ""
         
+    @memoize
     def carouselresult(self):
         
         out = """
@@ -212,6 +213,7 @@ class HomepageView(grok.View):
     def rollmore(self):
         return "http://315ok.org/"
     
+    @memoize
     def rollresult(self):
         """return roll zone html"""
         

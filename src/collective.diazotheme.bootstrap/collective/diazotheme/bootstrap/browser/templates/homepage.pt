@@ -6,53 +6,61 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"      
       i18n:domain="collective.conference">        
 
-<body>
-<metal:left fill-slot="column_one_slot"></metal:left>
-<metal:right fill-slot="column_two_slot"></metal:right>
-	
-<metal:main fill-slot="main">
+<body>	
+<metal:main fill-slot="homepage">
     <tal:main-macro metal:define-macro="main">
-
-    	 <div id="visual-portal-wrapper" class="container homepage">
+    	 <div id="homepage" class="container homepage">
+    	 	 <div id="portal-top"            
+            tal:condition="not:ajax_load">
+					<div class="cell width-full position-0">
+            <div tal:replace="structure provider:plone.portaltop" />
+					</div>
+       </div>
        <div class="row">         
          <div class="col-xs-12 col-md-4">
          	<div tal:content="structure python: view.carouselresult()">outer</div>        	
-         </div>
-         
+         </div>         
          <div class="col-xs-12 col-md-4">
-         	<dl class="portlet rolltext_portlet">
-         		<dt class="portletHeader text-center">
+         	<div class="portlet rolltext_portlet">
+         		<h4 class="portletHeader text-center">
          			<a tal:attributes="href python:view.rollmore()" >
          				<span class="label label-primary" tal:content="python:view.rollheader()" />
          			</a>
-         		</dt>
+         		</h4>
 	<!-- ul's parent div must be set css code {display:inline;float:left;overflow:hidden;height or width;} 
 	li must be set height or width.
 	-->
 	
-	           <dd id="topid"   tal:content="structure python: view.rollresult()">
+	           <div id="topid"   tal:content="structure python: view.rollresult()">
 	           	
-	           </dd>
-	         </dl>
+	           </div>
+	         </div>
          </div>
          <div class="col-xs-12 col-md-4">
-    <dl class="portlet portletFetchOuterPortlet">
-	  <dt  class="portletHeader text-center">
-         <a tal:attributes="href python:view.outhtmlmore()">
+    				<div class="portlet portletFetchOuterPortlet">
+	  				<h4  class="portletHeader text-center">
+         	<a tal:attributes="href python:view.outhtmlmore()">
             <span class="label label-primary" tal:content="python:view.outhtmlheader()" />
-        </a>
-    </dt>
-    <dd id="outhtml" tal:content="structure python: view.outhtmlresult()">outer</dd>	
-    </dl>
+       		</a>
+    				</h4>
+    				<div id="outhtml" tal:content="structure python: view.outhtmlresult()">outer</div>	
+    				</div>
          </div>         
-       </div>
+       </div>       
      </div>
-    </tal:main-macro>
-</metal:main>
-<metal:js fill-slot="javascript_bottom_slot">
+     <div  class="container">
+ <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+    </div>
+<div id="scripts">
 <script type="text/javascript" src="test.js" 
     tal:attributes="src string:http://images.315ok.org/ajaxfetchimg.min.js"></script> 
 <script tal:content="python:view.outputjs()"></script>
-</metal:js>    
+</div>
+    </tal:main-macro>
+</metal:main>   
 </body>
 </html>

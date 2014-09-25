@@ -1,100 +1,88 @@
-<!doctype html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!--> 
-<html class="no-js" lang="en"> <!--<![endif]-->
-   <head>
-      <meta charset="utf-8"/>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="315okfavicon.ico">
 
-      <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-      More info: h5bp.com/b/378 -->
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Starter Template for Bootstrap</title>
 
-      <title></title>
-      <meta name="description" content=""/>
-      <meta name="author" content=""/>
+    <!-- Bootstrap core CSS -->
+ <!--   <link href="dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-      <!-- Mobile viewport optimized: j.mp/bplateviewport -->
-      <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <!-- Custom styles for this template -->
+    <link href="http://images.315ok.org/315ok/css/315ok.css" rel="stylesheet">
 
-      <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
-
-      <!-- CSS: implied media=all -->
-      <!-- CSS concatenated and minified via ant build script-->
-      <link rel="stylesheet" href="css/public.css"/>
-      <link rel="stylesheet" href="css/reset.css"/>
-      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
-      <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" media="screen"/>
-
-      <link rel="stylesheet" href="openid-selector/css/openid.css"/>
-      <link rel="stylesheet" href="css/kuputabs.css"/>      
-      <link rel="stylesheet" href="css/themeflow.css"/>
-      <link rel="stylesheet" href="jqueryui/css/eggplant/jquery-ui-1.8.5.custom.css"/>
-      <!-- end CSS-->
-
-      <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
-
-         <!-- All JavaScript at the bottom, except for Modernizr / Respond.
-         Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
-         For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
-         <script src="js/libs/modernizr-2.6.2.min.js"></script>
-
-      </head>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="dist/js/html5shiv.js"></script>
+      <script src="dist/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
       <body>
-
-         <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-               <div class="container-fluid">
-                <a class="btn btn-navbar" data-toggle="collapse"
-                   data-target="#topnav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </a>
-               <a class="brand" href="/dashboard"><img src="img/home.png"/></a>
-
-
-               <div class="nav-collapse" id="topnav-collapse">
-                  <ul id="nav" class="nav">
-                     <li><a href="#about">About</a></li>
-                     <li class="dropdown" data-dropdown='dropdown'>
-                     <a href="#" class="dropdown-toggle">Services</a>
-                     <ul class="dropdown-menu">
-                        <li><a href="#item1">Plone Development</a></li>
-                     </ul>
-                     </li>
-                     <li><a href="#contact">Contact</a></li>
-                  </ul>
-                  <ul id="secondary-nav" class="nav pull-right">
-                     <li class="dropdown" data-dropdown="dropdown">
-                     <a class="dropdown-toggle" href="#">
-                        <span id="personaltool-menuheader">User</span>
-                        <b class="caret"></b></a>
-                     <ul class="dropdown-menu" id="personaltool-menu">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Logout</a></li>
-                     </ul>
-                     </li>
-                  </ul>
-                  <form id="topsearchbox" class="navbar-search pull-right">
-                     <input class="search-query" name="SearchableText" placeholder="Search"/>
-                  </form>
-               </div>
-               </div>
-            </div>
-
-         </div>
-
-         <div id="container" class="container-fluid">
+<header role="banner" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button data-target="#topnav-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../">315OK</a>
+    </div>
+    <nav role="navigation" id="topnav-collapse" class="collapse navbar-collapse">
+      <ul id="nav" class="nav navbar-nav">
+        <li class="active">
+          <a href="../getting-started">快速上手</a>
+        </li>
+        <li>
+          <a href="../css">基础CSS</a>
+        </li>
+        <li>
+          <a href="../components">组件</a>
+        </li>
+        <li>
+          <a href="../javascript">JavaScript插件</a>
+        </li>
+        <li>
+          <a href="../customize">定制</a>
+        </li>
+      </ul>
+      <form id="topsearchbox" class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control search-query" name="SearchableText" placeholder="Search"/>        
+      </div>
+      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>
+</button>
+    </form>      
+      <ul id="secondary-nav" class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="personaltool-menuheader">Dropdown</span><b class="caret"></b></a>
+        <ul class="dropdown-menu" id="personaltool-menu">
+          <li><a href="#">动作</a></li>
+          <li><a href="#">另外动作</a></li>
+          <li><a href="#">其他动作</a></li>
+          <li class="divider"></li>
+          <li><a href="#">带分割符的链接</a></li>
+        </ul>
+        </li>
+      </ul>
+     
+    </nav>
+  </div>
+</header>
+         <div id="container" class="container">
             <div id="header">
                <img id="logo" src="img/logo.png"/>
             </div>
 
-            <div id="main" role="main" class="icons-on">
+            <div id="main" role="main" class="icons-off">
                <div>
                   <ul class="breadcrumb">
                      <li><a href="#">Home</a><span class="divider">/</span></li>
@@ -102,8 +90,8 @@
                   </ul>
                </div>
                <div id="content-columns">
-                  <div class="row-fluid">
-                     <div id="left-column" class="span3">
+                  <div class="row">
+                     <div id="left-column" class="col-md-3">
                         <div id="left-column-content">
                         <section>
                            <h4 class="portlet-header">Navigation</h4>
@@ -186,7 +174,7 @@
                         </article>
                         </div>
                      </div>
-                     <div id="right-column" class="span3">
+                     <div id="right-column" class="col-md-3">
                         <div id="right-column-content">
                         <section>
                            <h4 class="portlet-header">Calendar</h4>
@@ -227,13 +215,13 @@
                      </div>
                   </div>
                </div>
-               <div id="portletBelowContentManager" class="row-fluid">
-                  <div id="portletBelowContentA" class="span4">
+               <div id="portletBelowContentManager" class="row">
+                  <div id="portletBelowContentA" class="col-md-4">
                      <p id="companycode">
                      <img src="img/inigologo.png"/><br/>
                      (846624A)</p>
                   </div>
-                  <div id="portletBelowContentB" class="span4">
+                  <div id="portletBelowContentB" class="col-md-4">
                      <h2>Who are we?</h2>
                      <p>Inigo Consulting is a Malaysian based fully employee owned
                      company that
@@ -241,7 +229,7 @@
                      companies to help them deliver their goals in a cost effective manner.
                      </p>
                   </div>
-                  <div id="portletBelowContentC" class="span4">
+                  <div id="portletBelowContentC" class="col-md-4">
 
                      <h2>Contact Us</h2>
                      <p>Inigo Consulting Sdn Bhd <br/>
@@ -251,8 +239,8 @@
                      <p>Phone: 0172792765</p>
                   </div>
                </div>
-               <div class="row-fluid">
-                  <div id="portletBelowContentD" class="offset1 span10">
+               <div class="row">
+                  <div id="portletBelowContentD" class="col-md-offset-1 col-md-10">
                   </div>
                </div>
             <div style="clear:both;display: none;">&nbsp;</div>
@@ -261,37 +249,37 @@
 
             <div style="clear:both;display: none">&nbsp;</div>
             <div class="footer container">
-            	<div class="row-fluid">
-                  <div id="portletBelowContentF" class="offset2 span8">
+            	<div class="row">
+                  <div id="portletBelowContentF" class="col-md-offset-2 col-md-8">
                   </div>            		
             	</div>            	
-               <div id="portletFooterManager" class="row-fluid">
-                  <div id="portletFooterA" class="span2">
+               <div id="portletFooterManager" class="row">
+                  <div id="portletFooterA" class="col-md-2">
                      Inigo Consulting is a Malaysian based fully employee owned
                      company that provides consultancy services for non-profits, government agencies and
                      companies to help them deliver their goals in a cost effective manner.
                   </div>
-                  <div id="portletFooterB" class="span2">
+                  <div id="portletFooterB" class="col-md-2">
                      Inigo Consulting is a Malaysian based fully employee owned
                      company that provides consultancy services for non-profits, government agencies and
                      companies to help them deliver their goals in a cost effective manner.
                   </div>
-                  <div id="portletFooterC" class="span2">
+                  <div id="portletFooterC" class="col-md-2">
                      Inigo Consulting is a Malaysian based fully employee owned
                      company that provides consultancy services for non-profits, government agencies and
                      companies to help them deliver their goals in a cost effective manner.
                   </div>
-                  <div id="portletFooterD" class="span2">
+                  <div id="portletFooterD" class="col-md-2">
                      Inigo Consulting is a Malaysian based fully employee owned
                      company that provides consultancy services for non-profits, government agencies and
                      companies to help them deliver their goals in a cost effective manner.
                   </div>
-                  <div id="portletFooterE" class="span2">
+                  <div id="portletFooterE" class="col-md-2">
                      Inigo Consulting is a Malaysian based fully employee owned
                      company that provides consultancy services for non-profits, government agencies and
                      companies to help them deliver their goals in a cost effective manner.
                   </div>
-                  <div id="portletFooterF" class="span2">
+                  <div id="portletFooterF" class="col-md-2">
                      Inigo Consulting is a Malaysian based fully employee owned
                      company that provides consultancy services for non-profits, government agencies and
                      companies to help them deliver their goals in a cost effective manner.
@@ -302,45 +290,13 @@
 
 
          <!-- JavaScript at the bottom for fast page loading -->
-
-         <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline 
-         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-         <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-
-            -->
-
-
-            <!-- scripts concatenated and minified via ant build script-->
-            <script>
-               var jQuery14 = jQuery;
-            </script>
-            <script src="jquery-1.7.1.min.js"></script>
-            <script src="bootstrap/js/bootstrap.js"></script>
-            <script>
-               var jQuery17 = jQuery;
-               $ = jQuery14;
-               jQuery = jQuery14;
-               jQuery17(document).ready(function () {
-                  jQuery17('.dropdown-toggle').dropdown();
-               });
-            </script>
-            <script defer src="js/plugins.js"></script>
-            <script defer src="openid-selector/js/openid-jquery.js"></script>
-            <script defer src="js/openid-providers.js"></script>
-            <script defer src="js/openid-wrapper.js"></script>
-            <script defer src="js/script.js"></script>
-<!--            <script defer src="js/kuputabs.js"></script>  -->         
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--    <script src="dist/js/jquery.js"></script> -->
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>    
+<!--    <script src="dist/js/bootstrap.min.js"></script> -->
             <div id="site-scripts"></div>
-
-            <!-- end scripts-->
-
-
-            <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
-            chromium.org/developers/how-tos/chrome-frame-getting-started -->
-            <!--[if lt IE 7 ]>
-            <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-            <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-            <![endif]-->
-
          </body>
       </html>

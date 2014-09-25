@@ -54,6 +54,7 @@
     tal:attributes="class body_class;
                     dir python:isRTL and 'rtl' or 'ltr'">
 
+<metal:homepage define-slot="homepage">
 <div id="visual-portal-wrapper">
         <div id="portal-top"
             class="row"
@@ -182,6 +183,7 @@
 	<div id="bottom-js" class="hidden">
  		<metal:javascriptslot define-slot="javascript_bottom_slot" />	
 	</div>
+</metal:homepage>	
 </body>
 </html>
 

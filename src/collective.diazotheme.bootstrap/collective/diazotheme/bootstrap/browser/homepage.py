@@ -175,10 +175,10 @@ class HomepageView(grok.View):
         for i in range(brainnum):            
             out = """<li data-target='%(carouselid)s' data-slide-to='%(indexnum)s' class='%(active)s'>
             </li>""" % dict(indexnum=str(i),
-                    carouselid='#' + self.carouselid(),
+                    carouselid=''.join(['#',self.carouselid()]),
                     active=self.active(i))
                                                
-            outhtml = outhtml + out
+            outhtml = ''.join([outhtml,out])   # quick concat string
             objurl = braindata[i].getURL()
             objtitle = braindata[i].Title
             outimg = """<div class="%(classes)s">
@@ -186,11 +186,11 @@ class HomepageView(grok.View):
                           <div class="carousel-caption">
                             <h3>%(imgtitle)s</h3>
                               </div>
-                                </div>""" % dict(classes="item " + self.active(i),
-                     imgsrc=objurl + "/@@images/image/preview",imgtitle=objtitle)
-            outhtml2 = outhtml2 + outimg                       
+                                </div>""" % dict(classes=''.join(["item ", self.active(i)]),
+                     imgsrc=''.join([objurl, "/@@images/image/preview"]),imgtitle=objtitle)
+            outhtml2 = ''.join([outhtml2,outimg])   # quick concat string                    
 #        outhtml = outhtml +'</ol><div class="carousel-inner">'
-        result = outhtml + outhtml2
+        result = ''.join([outhtml,outhtml2])   # quick concat string
         out = """
         </div><a class="left carousel-control" href="%(carouselid)s" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -198,8 +198,8 @@ class HomepageView(grok.View):
   <a class="right carousel-control" href="%(carouselid)s" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
-</div>""" % dict(carouselid = "#" + self.carouselid())
-        return result + out
+</div>""" % dict(carouselid = ''.join(["#", self.carouselid()]))
+        return ''.join([result,out])
                 
               
 # roll zone
@@ -241,8 +241,8 @@ class HomepageView(grok.View):
                                             title=objtitle,
                                             date= modifydate)
                                                
-            outhtml = outhtml + out
-        outhtml = outhtml +"</ul></div>"
+            outhtml = ''.join([outhtml,out])   #quick concat string
+        outhtml = "%s</ul></div>" % outhtml
         return outhtml                
         
                
@@ -312,7 +312,7 @@ class HomepageView(grok.View):
                 'cssclass':"dxb_bc",
                 'attribute':"",
                 'regexp':"",
-                'index':0,
+                'index':0,   #fetch first block
                 'interval':24
                 }
         return data
@@ -366,17 +366,17 @@ class HomepageView(grok.View):
         for i in aitems:
             u = i['href']
             if u[0] != '/':
-                i['href'] = base  + '/' + u
+                i['href'] = ''.join([base,'/', u])          #quick concat string
             else:                
-                i['href'] = base  + u
+                i['href'] = ''.join([base, u])
 #        imgitems = tmp.findAll("img",src=re.compile("^\/"))
         imgitems = tmp.findAll("img",src=re.compile("^[^hH]"))
         for j in imgitems:
             v = j['src']
             if v[0] != '/':
-                j['src'] = base  + '/' + v
+                j['src'] = ''.join([base,'/', v])
             else:                
-                j['src'] = base  + v
+                j['src'] = ''.join([base, v])
         return tmp                      
         
         

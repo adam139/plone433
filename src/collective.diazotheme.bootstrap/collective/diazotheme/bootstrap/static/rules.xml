@@ -72,6 +72,18 @@
     	<append css:content="#homepage .row" css:theme="#homepage"/>
     	<replace css:content="footer" css:theme-children=".footer .row"/>
     	<append css:content-children="#scripts" theme="/html/body"/>
+<!-- process fetchout portlet -->
+    	<replace css:content="#outhtml li">
+    		<li>
+    	<span>
+    		<xsl:copy-of select="a"/>
+    	</span>    	
+    	<span class="portletItemDetails">
+    		<xsl:value-of select="em/node()"/>
+    	</span>
+    	</li>
+    	</replace>
+
   </rules>
   
   <rules css:if-content="#visual-portal-wrapper">      

@@ -74,7 +74,7 @@
     	<append css:content-children="#scripts" theme="/html/body"/>
 <!-- process fetchout portlet -->
     	<replace css:content="#outhtml li">
-    		<li>
+    		<li class="rollitem">
     	<span>
     		<xsl:copy-of select="a"/>
     	</span>    	

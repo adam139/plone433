@@ -73,6 +73,7 @@
     	<replace css:content="footer" css:theme-children=".footer .row"/>
     	<append css:content-children="#scripts" theme="/html/body"/>
 <!-- process fetchout portlet -->
+
     	<replace css:content="#outhtml li">
     		<li class="rollitem">
     	<span>

@@ -38,6 +38,6 @@ class TestSetup(unittest.TestCase):
         browser = Browser(app)
         browser.addHeader('Authorization', 'Basic %s:%s' % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD,))
         
-        browser.open(portal.absolute_url())
+        browser.open(portal.absolute_url() + '/@@homepage')
 
-        self.assertTrue('<dd id="topid">' in browser.contents)        
+        self.assertTrue('<div id="home" class="container homepage">' in browser.contents)        

@@ -18,6 +18,7 @@ from plone.app.layout.navigation.interfaces import INavigationRoot
 from my315ok.socialorgnization import _
 
 from my315ok.products.product import Iproduct
+from plone.app.collection.interfaces import ICollection
 
 from plone.memoize.instance import memoize
 
@@ -105,7 +106,7 @@ class HomepageView(grok.View):
             return id
         
 
-    
+#######carousel    
     def carouselid(self):
         return "carouselid"
     
@@ -116,7 +117,8 @@ class HomepageView(grok.View):
             return ""
         
     @memoize
-    def carouselresult(self):
+    def carouselresult(self,path=None):
+        """ path is absolute path.example:'/pub'"""
         
         out = """
         <div id="carousel-generic" class="carousel slide">
@@ -160,11 +162,20 @@ class HomepageView(grok.View):
 </div>
         """ 
         
-        braindata = self.catalog()({'object_provides':Iproduct.__identifier__, 
+        if path == None:
+            queries = {'object_provides':Iproduct.__identifier__, 
                                     'b_start':0,
                                     'b_size':3,
                              'sort_order': 'reverse',
-                             'sort_on': 'created'})
+                             'sort_on': 'created'}
+        else:
+            queries = {'object_provides':Iproduct.__identifier__, 
+                                    'b_start':0,
+                                    'b_size':3,
+                                    'path':path,
+                             'sort_order': 'reverse',
+                             'sort_on': 'created'}
+        braindata = self.catalog()(queries)
         brainnum = len(braindata)
         if brainnum == 0:return out        
 
@@ -214,14 +225,25 @@ class HomepageView(grok.View):
         return "http://315ok.org/"
     
     @memoize
-    def rollresult(self):
+    def rollresult(self,colletion=None):
         """return roll zone html"""
         
-        braindata = self.catalog()({'meta_type':'ATNewsItem',
+        if collection == None:
+            braindata = self.catalog()({'meta_type':'ATNewsItem',
                                     'b_start':0,
                                     'b_size':10,
                              'sort_order': 'reverse',
-                             'sort_on': 'created'})          
+                             'sort_on': 'created'})
+        else:
+            queries = {'object_provides':ICollection.__identifier__, 
+                                    'name':colletion}
+            ctobj = self.catalog()(queries)
+            if ctobj is not None:
+                # pass on batching hints to the catalog
+                braindata = collection.queryCatalog(batch=True, b_size=10)
+            else:           
+                braindata = None
+                      
         outhtml = """<div class="%s" data-pause="1000" data-step="1" data-speed="30" data-direction="up">
             <ul class="rolltext">
         """ % (self.rollwrapperclass())
@@ -245,7 +267,56 @@ class HomepageView(grok.View):
         outhtml = "%s</ul></div>" % outhtml
         return outhtml                
         
-               
+##### roll images portlet
+    def roll_images_js(self,**parameters):
+        """roll images js"""
+  
+        out="""$(document).ready(function(){ajaxfetchimg("%(topid)s","%(url)s",".%(mid)s",%(text)s);});"""
+        out=out % dict(topid=topid,url=imgsrc,mid=cssid,text=showtext)
+        return out           
+        
+    def roll_images(self,**parameters):
+        """
+        output roll images
+        parameters:
+        topid: roll zone wrapper CSS id
+        href:portlet header link to url
+        title:portlet header text
+        pause: pause time, seconds
+        step:  roll step
+        direction:up,down,left,right
+        speed:roll speed
+        ajaxsrc: images source url
+        mid:roll zone inner css id
+        text:1,display text under image;0 No...  
+        """ 
+        out = """
+    <div class="portlet roll_imageportlet">
+        <h4 class="portletHeader">        
+        <a href="%(href)s">%(title)</a>
+        </h4>    
+        <div id="%(topid)s">
+        <div class="marquee" pause="%(pause)s" step="%(step)s" speed="%(speed)s" direction="%(direction)s">
+            <ul class="img"></ul>          
+        </div>
+        </div>  
+        <div>
+        <script>%(scripts)s</script>         
+        </div>
+    </div>
+        """ 
+        out = out % dict(topid=parameters["topid"],
+                         href=parameters["href"],
+                         title=parameters["title"],
+                         pause=parameters["pause"],
+                         step=parameters["step"],
+                         speed=parameters["speed"],
+                         direction=parameters["direction"],
+                         scripts=self.render_imgjs(topid=parameters["topid"],
+                                                   url=parameters["ajaxsrc"],
+                                                   mid=parameters["mid"],
+                                                   text=parameters["text"])) 
+        return out            
         
 # outer html zone
 
@@ -416,7 +487,6 @@ class HomepageView(grok.View):
        
     def store_tmp_content(self,id,content):
 
-
         container = self.target_folder()
         if id == None:
             return
@@ -436,6 +506,70 @@ class HomepageView(grok.View):
        
         out="""$(document).ready(function(){rolltext(".%(mid)s");});""" % dict(mid=cssid)
         return out  
+####################
+#slide bar
+    def target(self):
+        """
+        返回面板标题链接地址，用于继承类覆盖时调用
+        """
+        return "http://www.315ok.org"
+    def title(self):
+        """
+        返回面板标题
+        """
+        return u"产品展示"
     
+    def ajaxsrc(self):
+        return "http://www.xtshzz.org/xinwenzhongxin/tupianxinwen/@@barsview_preview"
+    
+    def inteval(self):
+        return 6000
+
+    @memoize
+    def render_imgjs(self,**parameters):
+        """
+        parameters:dictionary 
+        outid, outest cssid
+        ajaxsrc, image data source ,a url of simple multiproducts page
+        intervalset, loop time
+        """
+        out="""$(document).ready(function()
+        {imgPlayer("%(slideid)s", "%(url)s",function()
+          {setTimeout(function(){ $("#%(slideid)s").show();},200);});
+         var interval = setInterval('showNumImg("%(slideid)s")', %(ms)s);
+         $("#%(slideid)s .num").bind("mouseenter",function(){clearInterval(interval);})
+         $("#%(slideid)s .num").bind("mouseleave",function(){interval = setInterval('showNumImg("%(slideid)s")', %(ms)s);})
+ });""" % dict(slideid=parameters["outerid"],url=parameters["ajaxsrc"],ms=parameters["intervalset"])
+        return out
+    
+    def output_sidebar(self):
+        """
+        输出ajax图片轮换面板    
+        """
+        out="""
+        <div class="portlet portletslidebar_portlet">
+            <h4 class="portletHeader text-center">        
+            <a href="%(target)s">%(title)s</a>        
+            </h4>
+            <div>
+            <script src="http://images.315ok.org/imgPlayer.nojq.js"></script>       
+            <div id="slidecontainer" class="txtBanner noMarginTop">
+                <div id="sliderimages" class="slideBanner">
+                    <ul class="img"></ul>
+                    <div class="panel"></div>
+                    <ul class="num"></ul>
+                </div>
+            </div>    
+        <script>%(scripts)s</script> 
+        </div>  
+        </div>        
+        """
+        return out % dict(target=self.target(),
+                          title=self.title(),
+                          scripts=self.render_imgjs(
+                                                    outid="sliderimages",
+                                                    ajaxsrc=self.ajaxsrc(),
+                                                    intevalset=self.inteval()))
+            
         
     

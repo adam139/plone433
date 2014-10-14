@@ -11,8 +11,8 @@
     <notheme if-path="@@barsview_mini" />
       
 
-    <theme href="315ok.html" css:if-content="#visual-portal-wrapper"/>
-    <theme href="315ok_front_page.html" css:if-content="#homepage"/>    
+    <theme href="xsgs.html" css:if-content="#visual-portal-wrapper"/>
+    <theme href="xsgs_front_page.html" css:if-content="#homepage"/>    
     <theme href="dialog.html" css:if-content="#content.dialog-wrapper"/>
 		<copy theme="/html" content="/html" attributes="lang"/>    
     <replace theme="/html/head/title" content="/html/head/title" />

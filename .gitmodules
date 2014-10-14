@@ -58,3 +58,6 @@
 [submodule "src/my315ok.wechat"]
 	path = src/my315ok.wechat
 	url = git@github.com:adam139/my315ok.wechat.git
+[submodule "src/xsgs.policy"]
+	path = src/xsgs.policy
+	url = git@github.com:adam139/xsgs.policy.git

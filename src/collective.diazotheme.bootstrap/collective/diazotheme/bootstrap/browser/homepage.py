@@ -104,6 +104,19 @@ class HomepageView(grok.View):
             return brains[0].Title
         else:
             return id
+############################ JQ swf portlet
+    def swf_locid(self):
+        """return swf css id"""
+        return "mainflash"
+    
+    @memoize
+    def swf_js_settings(self,**parameters):
+
+        out = """genswf("%(swfile)s","transparent",%(ht)s,%(wh)s,"#%(swfLocid)s");""" \
+        % dict(swfile=parameters['swf'],ht=parameters['height'],wh=parameters['width'],swfLocid=self.swf_locid())
+        return out                       
+
+
         
 
 #######carousel    
@@ -225,7 +238,7 @@ class HomepageView(grok.View):
         return "http://315ok.org/"
     
     @memoize
-    def rollresult(self,colletion=None):
+    def rollresult(self,collection=None):
         """return roll zone html"""
         
         if collection == None:
@@ -235,12 +248,14 @@ class HomepageView(grok.View):
                              'sort_order': 'reverse',
                              'sort_on': 'created'})
         else:
+#            import pdb
+#            pdb.set_trace()
             queries = {'object_provides':ICollection.__identifier__, 
-                                    'name':colletion}
+                                    'id':collection}
             ctobj = self.catalog()(queries)
             if ctobj is not None:
                 # pass on batching hints to the catalog
-                braindata = collection.queryCatalog(batch=True, b_size=10)
+                braindata = ctobj[0].getObject().queryCatalog(batch=True, b_size=10)
             else:           
                 braindata = None
                       

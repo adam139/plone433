@@ -40,4 +40,4 @@ class TestSetup(unittest.TestCase):
         
         browser.open(portal.absolute_url() + '/@@homepage')
 
-        self.assertTrue('<div id="home" class="container homepage">' in browser.contents)        
+        self.assertTrue('<div id="homepage" class="container">' in browser.contents)        

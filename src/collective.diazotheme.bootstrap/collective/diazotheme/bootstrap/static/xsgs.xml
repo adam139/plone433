@@ -25,7 +25,8 @@
     <drop css:content="link[href$='favicon.ico']" />
     <drop css:content="#viewlet-below-content-title"/>
     <drop css:theme="#logo"/>
-
+    <drop css:content=".documentActions" />
+    
     <after css:theme="meta[http-equiv='X-UA-Compatible']" 
         content="/html/head/meta" />
 		<copy css:theme="#topsearchbox" css:content="#portal-searchbox form" attributes="action"/>
@@ -153,13 +154,16 @@
                     </xsl:if>
                 </xsl:for-each>
             </div>
-            <article>
-                
+            <article>                
                 <xsl:copy-of css:select=".portalMessage"/>
+                
                 <div id="action-bar">
                 	 <xsl:if css:test="#content-views">
                     <ul class="nav nav-tabs">
                     <xsl:for-each css:select="#content-views > li">
+                        <xi:include href="navigation-rules.xml"/>
+                    </xsl:for-each>
+                    <xsl:for-each css:select=".documentActions  li">
                         <xi:include href="navigation-rules.xml"/>
                     </xsl:for-each>
                     <xsl:for-each css:select="#contentActionMenus > li">
@@ -183,7 +187,11 @@
                 </div>
 
                 <xsl:apply-templates css:select="#content"/>
+
+                <!-- process document actions -->
+
             </article>
+            
             <div class="visualClear"/>
             <div id="#viewlet-below-content">
                 <xsl:for-each css:select="#viewlet-below-content > *">

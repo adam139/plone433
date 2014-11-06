@@ -62,11 +62,17 @@
 </button>
     </form>
     <ul class="nav navbar-nav navbar-left">
-    	<li><a class="mobile-entry" href="#">手机门户</a>
-    		<div style="display:none" class="sn-qrcode">
+    	<!--js in policy package-->
+    	<li><a id="follow-entry" href="#">关注</a>
+    		<div  id="follow-qrcode" class="qrcode">
     			<div class="sn-qrcode-content"></div>
-    			<p>扫一扫，关注我们！</p><b></b></div>
+    			<p>扫一扫，关注我们！</p></div>
     	</li>
+    	<li><a id="mobile-entry" href="#">手机</a>
+    		<div  id="sn-qrcode" class="qrcode">
+    			<div class="sn-qrcode-content phone"></div>
+    			<p>扫一扫，手机登陆！</p><b></b></div>
+    	</li>    	
     </ul>      
       <ul id="secondary-nav" class="nav navbar-nav navbar-right">
           <li class="dropdown">

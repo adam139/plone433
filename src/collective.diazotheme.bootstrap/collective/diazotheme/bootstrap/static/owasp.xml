@@ -126,7 +126,7 @@
                 </xsl:for-each>
             </div>
             <article>
-                <xsl:copy-of css:select="#kssPortalMessage"/>
+
                 <xsl:copy-of css:select=".portalMessage"/>
                 <div id="action-bar">
                     <ul class="nav nav-tabs">

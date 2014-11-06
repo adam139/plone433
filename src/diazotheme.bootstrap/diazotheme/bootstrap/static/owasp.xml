@@ -14,7 +14,8 @@
     <theme href="owasp.html" css:if-content="#visual-portal-wrapper"/>
     <theme href="dialog.html" css:if-content="#content.dialog-wrapper"/>
     <drop css:content="meta[http-equiv='X-UA-Compatible']"/>
-    <drop css:content="link[href$='favicon.ico']" /> 
+    <drop css:content="link[href$='favicon.ico']" />
+    <merge attributes="dir class" css:content="body" css:theme="body" />      
 <!--<drop content="html/head/script" /> -->        
     <rules css:if-content="#content.dialog-wrapper">
         <prepend theme="/html/head" content="/html/head/base"/>
@@ -56,7 +57,8 @@
     <after css:theme="script[src$='jquery-1.7.2.min.js']" 
         content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
 <!--    <after css:theme="meta[http-equiv='X-UA-Compatible']" 
-        content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" /> -->        
+        content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" /> --> 
+               
     <prepend  css:theme=".navbar-inner">
         <xsl:if css:test=".InHeaderPortletManager1">
             <div class="portlet">

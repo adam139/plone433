@@ -61,3 +61,9 @@
 [submodule "src/xsgs.policy"]
 	path = src/xsgs.policy
 	url = git@github.com:adam139/xsgs.policy.git
+[submodule "src/xtgl.policy"]
+	path = src/xtgl.policy
+	url = git@github.com:adam139/xtgl.policy.git
+[submodule "src/hjzgb.policy"]
+	path = src/hjzgb.policy
+	url = git@github.com:adam139/hjzgb.policy.git

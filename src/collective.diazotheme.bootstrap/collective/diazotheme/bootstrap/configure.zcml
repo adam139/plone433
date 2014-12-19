@@ -6,9 +6,6 @@
     xmlns:grok="http://namespaces.zope.org/grok"    
     i18n_domain="collective.diazotheme.bootstrap">
 
-
-
-
   <includeDependencies package="." />
   <grok:grok package="." />          
  
@@ -16,7 +13,9 @@
 
   <plone:static directory="static" type="theme" 
       name="collective.diazotheme.bootstrap"/>
+      
   <cmf:registerDirectory name="diazotheme_bootstrap_custom"/>
+  
   <genericsetup:registerProfile
       name="default"
       title="collective.diazotheme.bootstrap"
@@ -25,5 +24,12 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.diazotheme.bootstrap"
+      directory="profiles/uninstall"
+      description="Uninstalls collective.diazotheme.bootstrap package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
    <include package=".browser"/>
 </configure>

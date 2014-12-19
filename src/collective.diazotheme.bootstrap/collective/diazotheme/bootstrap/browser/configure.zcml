@@ -1,17 +1,12 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"              
            xmlns:five="http://namespaces.zope.org/five">           
-<!--
-   <browser:page
-        name="view"
-        for="Products.CMFPlone.interfaces.ISiteRoot"
-        class=".homepage.HomepageView"
-        template="templates/homepage.pt"     
+    <interface
+        interface=".interfaces.IThemeSpecific" 
+        type="zope.publisher.interfaces.browser.IBrowserSkinType" 
+        name="collective.diazotheme.bootstrap" />
 
-        permission="zope2.View"
-
-        />
--->          
+           
     <browser:viewlet  
         name="plone.resourceregistries" 
         manager="plone.app.layout.viewlets.interfaces.IHtmlHead"

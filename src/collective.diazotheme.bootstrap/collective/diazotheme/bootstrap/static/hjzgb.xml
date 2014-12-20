@@ -26,6 +26,7 @@
     <drop css:content="#viewlet-below-content-title"/>
     <drop css:theme="#logo"/>
     <drop css:content=".documentActions" />
+    <drop css:content="#kssPortalMessage"/>
     
     <after css:theme="meta[http-equiv='X-UA-Compatible']" 
         content="/html/head/meta | /html/head/link" />
@@ -218,7 +219,9 @@
     <drop css:theme=".hero-unit" css:if-not-content=".section-front-page"/>
     <drop css:theme="#left-column" css:if-not-content="#portal-column-one"/>
     <drop css:theme="#right-column" css:if-not-content="#portal-column-two"/>
-
+    <drop css:theme=".authenticated-load" css:if-content=".userrole-anonymous"/>
+    <drop css:theme="#anonymous-load" css:if-content=".userrole-authenticated"/>
+    <drop css:theme="#hasleftcol" css:if-not-content="#portal-column-one"/> 
 
     <replace css:theme="#logo" css:content="#portal-logo"/>
     <append css:theme=".footer" css:content="div#visual-portal-wrapper > div.row > script"/>

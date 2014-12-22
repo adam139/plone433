@@ -1,6 +1,6 @@
 <layers>
     
-    <!-- Enable the Diazo960 Theme layer when installed -->
+    <!-- Disable the Theme layer when uninstalled -->
     
     <layer
         name="collective.diazotheme.bootstrap"

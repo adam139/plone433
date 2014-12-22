@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,10 @@
     <link rel="shortcut icon" href="315okfavicon.ico">
 
     <title>Starter Template for Bootstrap</title>
-
+		<link class="authenticated-load" 
+		href="http://images.315ok.org/plone434/css/form.css" rel="stylesheet"/>
+		<link class="authenticated-load" 
+		href="http://images.315ok.org/plone434/css/tinymce.css" rel="stylesheet"/>		
     <!-- Bootstrap core CSS -->
  <!--   <link href="dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -287,7 +290,20 @@
                </div>
             </div>
          </div> <!--! end of #container -->
-
+            <!-- anonymous load js resource-->
+            <div id="anonymous-load">
+             <script src="http://images.315ok.org/bootstrapthemes/js/plone-login.js"></script>
+             <script src="http://images.315ok.org/bootstrapthemes/js/table_sorter.js"></script>                                       	
+            </div>
+            <!-- login user load js resources-->
+            <div class="authenticated-load">
+             <script src="http://images.315ok.org/plone434/js/jquery.tinymce.js"></script>                                       	
+             <script src="http://images.315ok.org/plone434/js/tiny_mce_gzip.js"></script>
+            </div>            
+            <div id="hasleftcol">
+            <script src="http://images.315ok.org/bootstrapthemes/js/mk_div_sameheight.js"></script>
+                        	
+            </div>
 
          <!-- JavaScript at the bottom for fast page loading -->
     <!-- Bootstrap core JavaScript

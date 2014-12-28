@@ -67,3 +67,6 @@
 [submodule "src/hjzgb.policy"]
 	path = src/hjzgb.policy
 	url = git@github.com:adam139/hjzgb.policy.git
+[submodule "src/lonsunn.policy"]
+	path = src/lonsunn.policy
+	url = git@github.com:adam139/lonsunn.policy.git

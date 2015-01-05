@@ -9,6 +9,7 @@
 
   <plone:static directory="static" type="theme" 
       name="diazotheme.bootstrap"/>
+      
   <cmf:registerDirectory name="diazotheme_bootstrap_custom"/>
   <genericsetup:registerProfile
       name="default"

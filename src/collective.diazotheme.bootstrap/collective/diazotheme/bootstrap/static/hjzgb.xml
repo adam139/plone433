@@ -155,10 +155,8 @@
                     </xsl:if>
                 </xsl:for-each>
             </div>
-            <article>                
-                <xsl:copy-of css:select=".portalMessage"/>
-                
-                <div id="action-bar">
+            <article>
+            	<div id="action-bar">
                 	 <xsl:if css:test="#content-views">
                     <ul class="nav nav-tabs">
                     <xsl:for-each css:select="#content-views > li">

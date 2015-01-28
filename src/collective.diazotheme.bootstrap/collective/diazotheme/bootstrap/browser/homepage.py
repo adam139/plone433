@@ -238,24 +238,23 @@ class HomepageView(grok.View):
         return "http://315ok.org/"
     
     @memoize
-    def rollresult(self,collection=None):
+    def rollresult(self,collection=None,limit=7):
         """return roll zone html"""
         
         if collection == None:
             braindata = self.catalog()({'meta_type':'ATNewsItem',
                                     'b_start':0,
-                                    'b_size':10,
+                                    'b_size':limit,
                              'sort_order': 'reverse',
                              'sort_on': 'created'})
         else:
-#            import pdb
-#            pdb.set_trace()
+
             queries = {'object_provides':ICollection.__identifier__, 
                                     'id':collection}
             ctobj = self.catalog()(queries)
             if ctobj is not None:
                 # pass on batching hints to the catalog
-                braindata = ctobj[0].getObject().queryCatalog(batch=True, b_size=10)
+                braindata = ctobj[0].getObject().queryCatalog(batch=True)
             else:           
                 braindata = None
                       
@@ -528,6 +527,7 @@ class HomepageView(grok.View):
         返回面板标题链接地址，用于继承类覆盖时调用
         """
         return "http://www.315ok.org"
+    
     def title(self):
         """
         返回面板标题
@@ -586,5 +586,32 @@ class HomepageView(grok.View):
                                                     ajaxsrc=self.ajaxsrc(),
                                                     intevalset=self.inteval()))
             
+#### kuputable container ####
+    
+    def groupcollection_size(self):
+        return 7
+    
+    def collection_url(self,target_collection):
+        if not target_collection:
+            return None
+        queries = {'object_provides':ICollection.__identifier__, 
+                                    'id':target_collection}
+        ctobj = self.catalog()(queries)
+        return ctobj[0].getPath()        
         
+    @memoize
+    def collection(self,target_collection,limit):
+        """   target_collection collection id     """
+#        collection_path = target_collection
+        if not target_collection:
+            return None
+        queries = {'object_provides':ICollection.__identifier__, 
+                                    'id':target_collection}
+        ctobj = self.catalog()(queries)
+        if ctobj is not None:
+                # pass on batching hints to the catalog
+            braindata = ctobj[0].getObject().queryCatalog(batch=True, b_size=limit)
+        else:           
+            braindata = None
+        return braindata        
     

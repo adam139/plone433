@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
- <link rel="shortcut icon" type="image/x-icon" href="http://images.315ok.org/xtshzz/images/favicon.ico" />      
-
-
+ <link rel="shortcut icon" type="image/x-icon" href="http://images.315ok.org/xtshzz/images/favicon.ico" />
     <title>湘潭社会组织管理信息网</title>
 		<link class="authenticated-load" 
 		href="http://images.315ok.org/plone434/css/form.css" rel="stylesheet"/>
@@ -26,20 +24,10 @@
       <script src="dist/js/html5shiv.js"></script>
       <script src="dist/js/respond.min.js"></script>
     <![endif]-->
-        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script> 
-
-  </head>
-
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    </head>
 <body>
-  <div class="container container-header">      		
-       <div id="headerlogo" class="row">
-       	<div class="col-md-12  hidden-xs">
-             <img class="left" src="http://images.315ok.org/xtshzz/images/logo.jpg" alt="logo" />
-            	<img  class="right" src="http://images.315ok.org/xtshzz/images/header.jpg" alt="banner"/>               
-       </div>
-       </div>
-  </div>	
-<header role="banner" class="navbar navbar-default navbar-fixed-top">
+	<header role="banner" class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button data-target="#topnav-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
@@ -74,7 +62,7 @@
         <input type="text" class="form-control search-query" name="SearchableText" placeholder="Search"/>        
       </div>
       <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search">搜索</span>
-</button>
+			</button>
     </form>      
       <ul id="secondary-nav" class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -91,14 +79,18 @@
      
     </nav>
   </div>
-</header>
-         <div id="container" class="container">
-            <div id="header">
-               <img id="logo" src="img/logo.png"/>
-            </div>
-
-            <div id="main" role="main" class="icons-off">
-               <div>
+	</header>
+	<div class="container container-header">      		
+       <div id="headerlogo" class="row">
+       	<div class="hidden-xs">
+             <img class="left" src="http://images.315ok.org/xtshzz/images/logo.jpg" alt="logo" />
+            	<img  class="right" src="http://images.315ok.org/xtshzz/images/header.jpg" alt="banner"/>               
+       </div>
+       </div>
+	</div>	
+  <div id="container" class="container">
+  		<div id="main" role="main" class="icons-off">
+               <div class="row">
                   <ul class="breadcrumb">
                      <li><a href="#">Home</a><span class="divider">/</span></li>
                      <li class="active">Plone</li>
@@ -258,26 +250,27 @@
                   <div id="portletBelowContentD" class="col-md-offset-1 col-md-10">
                   </div>
                </div>
-            <div style="clear:both;display: none;">&nbsp;</div>
+            
 
             </div>
 
-            <div style="clear:both;display: none">&nbsp;</div>
-            <div class="footer container">
+            
+            <footer class="footer container">
             	<div class="row">
-                  <div id="portletBelowContentF" class="col-md-offset-2 col-md-8 text-center col-xs-12">
-                  </div>               
-               </div>
-               <div id="portletFooterManager" class="row">
-                  <div id="portletFooterB" class="col-md-12">
-                     315ok Consulting is a Chinese based fully employee owned
-                     company that
-                     provides consultancy services for non-profits, government agencies and
-                     companies to help them deliver their goals in a cost effective manner.
-                  </div>                 
-               </div>            		
-            	</div>      	              
-            </div>
+                  <div class="friendlybg col-sm-12 col-last">
+                  	
+            	<div class="text-center copyright">
+							<p>湘潭市民间组织管理处 湘潭市社会组织促进会主办</p>
+							<p>ICP备案： <a href="#">湘ICP备14006760号</a></p>
+							<p>技术支持：<a href="http://plone.315ok.org/">三人行网络</a>
+								协作：<a href="http://plone.315ok.org/">Plone技术论坛</a>
+							</p>
+						</div>
+						</div>             
+              </div>
+                        		
+            	</footer>    	              
+
          </div> <!--! end of #container -->
 
             <!-- anonymous load js resource-->
@@ -304,11 +297,10 @@
 <!--    <script src="dist/js/jquery.js"></script> -->
 
  <!--   <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->    
-    <script src="dist/js/bootstrap.min.js"></script> 
-     
-        
-
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script>
+    			$('.dropdown-toggle').dropdown();
+    </script>
     <div id="site-scripts"></div>
-            
-     </body>
+  </body>
 </html>

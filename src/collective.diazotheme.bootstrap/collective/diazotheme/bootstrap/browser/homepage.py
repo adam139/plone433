@@ -69,6 +69,10 @@ class HomepageView(grok.View):
         pm = getToolByName(context, "portal_membership")
         return pm
     
+    def getCurrentYear(self):
+        year = datetime.now().strftime("%Y")
+        return year
+    
     def cropTitle(self,text, length, ellipsis='...'):
         if length == 0 or length == None:
             return text

@@ -89,7 +89,7 @@
   </rules>
   
   <rules css:if-content="#visual-portal-wrapper">      
-    <prepend  css:theme=".navbar-inner">
+<!--    <prepend  css:theme=".navbar-inner">
         <xsl:if css:test=".InHeaderPortletManager1">
             <div class="portlet">
                 <xsl:for-each css:select=".InHeaderPortletManager1 .portletWrapper">
@@ -121,7 +121,7 @@
             </div>
         </div>            
         </xsl:if>
-    </prepend>
+    </prepend> -->
 
         <replace css:theme="#center-column">
         <div id="center-column"><xsl:attribute name="class">
@@ -135,13 +135,13 @@
                     nocolumns col-md-12
                 </xsl:if>
             </xsl:attribute>
-            <xsl:if css:test=".AbovePortletManager3">
+<!--            <xsl:if css:test=".AbovePortletManager3">
                 <div id="portletAboveContent">
                     <xsl:for-each css:select=".AbovePortletManager3 .portletWrapper">
                         <xi:include href="portlet-rules.xml"/>
                     </xsl:for-each>
                 </div>
-            </xsl:if>
+        </xsl:if>  -->
             <div id="#viewlet-above-content">
                 <xsl:for-each css:select="#viewlet-above-content > *">
                     <xsl:if test="@id">
@@ -155,8 +155,7 @@
                     </xsl:if>
                 </xsl:for-each>
             </div>
-            <article>                
-
+            <article>               
                 <div id="action-bar">
                 	 <xsl:if css:test="#content-views">
                     <ul class="nav nav-tabs">
@@ -246,7 +245,7 @@
             <xsl:copy-of css:select="#portal-column-two .managePortletsLink"/>
         </div>
     </replace>
-
+<!--
     <replace css:theme-children="#portletBelowContentA">
         <xsl:for-each css:select=".BelowPortletManager1 .portletWrapper">
             <xi:include href="portlet-rules.xml"/>
@@ -317,7 +316,7 @@
         </xsl:for-each>
         
     </replace>
-
+-->
 
     <append css:theme="#site-scripts" css:content="#portal-footer-wrapper > div > script"/>
     <append css:theme="#site-scripts" css:content-children="#bottom-js"/>

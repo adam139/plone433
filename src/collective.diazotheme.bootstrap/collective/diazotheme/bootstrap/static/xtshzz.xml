@@ -36,7 +36,25 @@
      
     <replace css:theme-children="#nav">
         <xsl:for-each css:select="#portal-globalnav > li">
-            <xi:include href="navigation-rules.xml"/>
+            <xsl:if test="not(ul)">
+        <li><xsl:attribute name="class">
+                <xsl:if test="contains(@class,'selected')">
+                    active
+                </xsl:if>
+            </xsl:attribute>
+            <xsl:copy-of select="a[node()]"/>
+        </li>
+    </xsl:if>
+    <xsl:if test="ul">
+        <li class="dropdown" data-dropdown="dropdown">
+            <a class="dropdown-toggle" href="#">
+            	<xsl:copy-of select="a/node()"/>
+                <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <xsl:copy-of select="ul/node()"/>
+            </ul>
+        </li>
+    </xsl:if>
         </xsl:for-each>
     </replace>
     <replace css:theme-children="#personaltool-menu" 

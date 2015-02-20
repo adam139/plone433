@@ -189,29 +189,8 @@
 
                 <!-- process document actions -->
 
-            </article>
-            
-            <div class="visualClear"/>
-            <div id="#viewlet-below-content">
-                <xsl:for-each css:select="#viewlet-below-content > *">
-                    <xsl:if test="@id">
-                    <xsl:if test="@id!='portlets-below'">
-                        <xsl:copy-of select="current()"/>
-                    </xsl:if>
-                    </xsl:if>
-                    <xsl:if test="not(@id)">
-                        <xsl:copy-of select="current()"/>
-                    </xsl:if>
-                </xsl:for-each>
-            </div>
-            <xsl:if css:test=".BelowPortletManager5">
-                <div id="portletBelowContent">
-                    <xsl:for-each css:select=".BelowPortletManager5 .portletWrapper">
-                        <xi:include href="portlet-rules.xml"/>
-                    </xsl:for-each>
-                </div>
-            </xsl:if>
-        </div>
+            </article> 
+           </div>
     </replace>
     <drop css:content="#enable_cookies_message"/>
     <drop css:theme=".hero-unit" css:if-not-content=".section-front-page"/>

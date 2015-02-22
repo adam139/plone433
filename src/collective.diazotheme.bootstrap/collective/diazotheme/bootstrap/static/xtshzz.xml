@@ -26,7 +26,7 @@
     <drop css:content="#viewlet-below-content-title"/>
     <drop css:theme="#logo"/>
     <drop css:content=".documentActions" />
-    <drop css:content="#kssPortalMessage"/>
+ <!--   <drop css:content="#kssPortalMessage"/>  -->
     
     <after css:theme="meta[http-equiv='X-UA-Compatible']" 
         content="/html/head/meta | /html/head/link" />
@@ -98,18 +98,14 @@
             content="/html/body"/>
   </rules>
   <rules css:if-content="#homepage">
-    	<replace css:content-children="#homepage" css:theme-children="#homepage"/>    	    	    	
-
+    	<replace css:content-children="#homepage" css:theme-children="#homepage"/>
     	<before css:content="#friendly-link" css:theme-children=".footer"/>
     	<replace css:content=".footer" css:theme-children=".footer .row"/>  	
     	<append css:content-children="#scripts" theme="/html/body"/>
-
   </rules>
   
-  <rules css:if-content="#visual-portal-wrapper">      
-
-
-        <replace css:theme="#center-column">
+  <rules css:if-content="#visual-portal-wrapper">
+  		<replace css:theme="#center-column">
         <div id="center-column"><xsl:attribute name="class">
                 <xsl:if test='contains(//*[@id="portal-column-content"]/@class,"width-3:4")'>
                     twocolumns col-md-9
@@ -135,9 +131,12 @@
                     </xsl:if>
                 </xsl:for-each>
             </div>
-            <article>               
-                <div id="action-bar">
-                	 <xsl:if css:test="#content-views">
+
+     		
+            <article>
+                <xsl:if css:test="#content-views">            	               
+                		<div id="action-bar">
+
                     <ul class="nav nav-tabs">
                     <xsl:for-each css:select="#content-views > li">
                         <xi:include href="navigation-rules.xml"/>
@@ -162,16 +161,52 @@
                         </li>
                     </xsl:for-each>
                     </ul>
+                		</div>
                   </xsl:if>
-                </div>
-
                 <xsl:apply-templates css:select="#content"/>
 
                 <!-- process document actions -->
 
-            </article> 
+            </article>
            </div>
     </replace>
+<!--
+    <replace css:content="#login_form">
+		<form action="http://localhost:8080/xtshzz/login_form" id="login_form" method="post" class="form-horizontal row">
+
+
+                    <input type="hidden" value="http://www.xtshzz.org/" name="came_from"/><input type="hidden" name="next"/><input type="hidden" name="ajax_load"/>
+                    <input type="hidden" name="ajax_include_head"/>
+                    <input type="hidden" name="target"/>
+                    <input type="hidden" name="mail_password_url"/>
+                    <input type="hidden" name="join_url"/>
+                    <input type="hidden" value="1" name="form.submitted"/>
+                    <input type="hidden" value="0" id="js_enabled" name="js_enabled"/>
+                    <input type="hidden" value="" id="cookies_enabled" name="cookies_enabled"/>
+                    <input type="hidden" value="" id="login_name" name="login_name"/>
+                    <input type="hidden" value="0" id="pwd_empty" name="pwd_empty"/>
+     
+       
+       
+       <div id="login-form" class="form-group col-xs-12 col-md-4 col-md-offset-4">
+
+          							<div class="field">
+                        <label for="__ac_name">登录名</label> 
+                        <input type="text" class="form-control" id="__ac_name" value="" name="__ac_name" size="15"/>                        	
+                        </div>
+
+                <div class="field">
+                        <label for="__ac_password">密码</label>
+                        <input type="password" class="form-control" id="__ac_password" name="__ac_password" size="15"/>                        	
+                        </div>                   
+
+                    <div class="formControls">
+                        <input type="submit" value="登录" name="submit" class="btn btn-default context"/></div>
+                </div>
+                <div class="col-md-4 hidden-xs"></div>
+            </form>
+	 </replace>  -->
+	  
     <drop css:content="#enable_cookies_message"/>
     <drop css:theme=".hero-unit" css:if-not-content=".section-front-page"/>
     <drop css:theme="#left-column" css:if-not-content="#portal-column-one"/>

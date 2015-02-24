@@ -134,6 +134,7 @@
 
      		
             <article>
+            	<xsl:copy-of css:select=".portalMessage"/>
                 <xsl:if css:test="#content-views">            	               
                 		<div id="action-bar">
 
@@ -207,7 +208,7 @@
             </form>
 	 </replace>  -->
 	  
-    <drop css:content="#enable_cookies_message"/>
+
     <drop css:theme=".hero-unit" css:if-not-content=".section-front-page"/>
     <drop css:theme="#left-column" css:if-not-content="#portal-column-one"/>
     <drop css:theme="#right-column" css:if-not-content="#portal-column-two"/>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    >  
+    <notheme if-path="@@manage-viewlets" />
+    <notheme if-path="@@barsview_thumb" />  
+    <notheme if-path="@@barsview_preview" />  
+    <notheme if-path="@@barsview_mini" />
+      
+
+    <theme href="xtshzz.html" css:if-content="#visual-portal-wrapper"/>
+    <theme href="xtshzz_front_page.html" css:if-content="#homepage"/>    
+    <theme href="dialog.html" css:if-content="#content.dialog-wrapper"/>
+		<copy theme="/html" content="/html" attributes="lang"/>    
+    <replace theme="/html/head/title" content="/html/head/title" />
+    <merge attributes="class" css:content="body" css:theme="body" />     
+    <prepend theme="/html/head" content="/html/head/base"/>
+    <replace theme="//*[@id='logo']/h1" content="//*[@id='content']/h1"/>
+    
+    <drop css:content="meta[http-equiv='X-UA-Compatible']"/>
+    <drop css:content="meta[name='viewport']" />     
+    <drop css:content="link[href$='favicon.ico']" />
+    <drop css:content="#viewlet-below-content-title"/>
+    <drop css:theme="#logo"/>
+    <drop css:content=".documentActions" />
+    <drop css:content="#kssPortalMessage"/>
+    
+    <after css:theme="meta[http-equiv='X-UA-Compatible']" 
+        content="/html/head/meta | /html/head/link" />
+		<copy css:theme="#topsearchbox" css:content="#portal-searchbox form" attributes="action"/>
+    <copy css:theme="#topsearchbox .search-query" css:content="#portal-searchbox form .searchField" attributes="placeholder"/>
+    <copy css:theme="#topsearchbox button" css:content="#portal-searchbox form .searchButton" attributes="value"/>       
+     
+    <replace css:theme-children="#nav">
+        <xsl:for-each css:select="#portal-globalnav > li">
+            <xsl:if test="not(ul)">
+        <li><xsl:attribute name="class">
+                <xsl:if test="contains(@class,'selected')">
+                    active
+                </xsl:if>
+            </xsl:attribute>
+            <xsl:copy-of select="a[node()]"/>
+        </li>
+    </xsl:if>
+    <xsl:if test="ul">
+        <li class="dropdown" data-dropdown="dropdown">
+            <a class="dropdown-toggle" href="#">
+            	<xsl:copy-of select="a/node()"/>
+                <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <xsl:copy-of select="ul/node()"/>
+            </ul>
+        </li>
+    </xsl:if>
+        </xsl:for-each>
+    </replace>
+    <replace css:theme-children="#personaltool-menu" 
+        css:content-children="#portal-personaltools ul"/>
+    <replace css:theme-children="#personaltool-menuheader" 
+        css:content-children="#portal-personaltools .actionMenuHeader a"/>
+    <replace css:theme-children="#secondary-nav" css:if-content="#anon-personalbar">
+        <li><xsl:copy-of css:select="#personaltools-login"/></li>
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        	<span id="personaltool-menuheader">注册</span><b class="caret"></b></a>
+        <ul class="dropdown-menu" id="personaltool-menu">
+          <li><xsl:copy-of css:select="#personaltools-joinsponsor"/></li>
+          <li><xsl:copy-of css:select="#personaltools-join"/></li>
+        </ul>
+        </li>
+     </replace>
+
+    <copy css:theme=".navbar-fixed-top .brand" css:content="#portal-logo" attributes="href"/>    
+    <replace css:theme-children=".breadcrumb">
+        <xsl:for-each css:select="#portal-breadcrumbs > span">                
+            <li>
+               <xsl:if css:test="span > a">
+                <xsl:copy-of select="a"/>
+                </xsl:if>
+                <xsl:if test="not(a)">
+                <xsl:copy-of select="node()"/>
+                </xsl:if>
+            </li>                            
+        </xsl:for-each>
+    </replace>    
+    
+  <rules css:if-content="#content.dialog-wrapper">
+        <prepend theme="/html/head" content="/html/head/base"/>
+        <after css:theme="meta[http-equiv='X-UA-Compatible']" 
+            content="/html/head/link | /html/head/style | /html/head/script | /html/head/meta" />
+        <replace theme="/html/body"
+            content="/html/body"/>
+  </rules>
+  <rules css:if-content="#homepage">
+    	<replace css:content-children="#homepage" css:theme-children="#homepage"/>
+    	<before css:content="#friendly-link" css:theme-children=".footer"/>
+    	<replace css:content=".footer" css:theme-children=".footer .row"/>  	
+    	<append css:content-children="#scripts" theme="/html/body"/>
+  </rules>
+  
+  <rules css:if-content="#visual-portal-wrapper">
+  		<replace css:theme="#center-column">
+        <div id="center-column">
+        		<xsl:attribute name="class">
+                <xsl:if test='contains(//*[@id="portal-column-content"]/@class,"width-3:4")'>
+                    twocolumns col-md-9
+                </xsl:if>
+                <xsl:if test='contains(//*[@id="portal-column-content"]/@class,"width-1:2")'>
+                    threecolumns col-md-6
+                </xsl:if>
+                <xsl:if test='contains(//*[@id="portal-column-content"]/@class,"width-full")'>
+                    nocolumns col-md-12
+                </xsl:if>
+            </xsl:attribute>
+
+            <div id="#viewlet-above-content">
+                <xsl:for-each css:select="#viewlet-above-content > *">
+                    <xsl:if test="@id">
+                    <xsl:if test="@id!='portlets-above' and
+                                  @id!='portal-breadcrumbs'">
+                        <xsl:copy-of select="current()"/>
+                    </xsl:if>
+                    </xsl:if>
+                    <xsl:if test="not(@id)">
+                        <xsl:copy-of select="current()"/>
+                    </xsl:if>
+                </xsl:for-each>
+            </div>
+            <article>               
+                <div id="action-bar">
+                	 <xsl:if css:test="#content-views">
+                    <ul class="nav nav-tabs">
+                    <xsl:for-each css:select="#content-views > li">
+                        <xi:include href="navigation-rules.xml"/>
+                    </xsl:for-each>
+                    <xsl:for-each css:select=".documentActions  li">
+                        <xi:include href="navigation-rules.xml"/>
+                    </xsl:for-each>
+                    <xsl:for-each css:select="#contentActionMenus > li">
+                        <li class="dropdown pull-right" >
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><xsl:attribute name="href">
+                                    <xsl:value-of select="dl/dt/a/@href"/>
+                                </xsl:attribute>
+                               
+                                <xsl:copy-of select="dl/dt/a/span[not(@class)]"/>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <xsl:for-each css:select=".actionMenuContent > ul > li">
+                                    <xsl:copy-of select="current()"/>
+                                </xsl:for-each>
+                            </ul>
+                        </li>
+                    </xsl:for-each>
+                    </ul>
+                  </xsl:if>
+                </div>
+
+                <xsl:apply-templates css:select="#content"/>
+
+                <!-- process document actions -->
+
+            </article> 
+           </div>
+    </replace>
+    <drop css:content="#enable_cookies_message"/>
+    <drop css:theme=".hero-unit" css:if-not-content=".section-front-page"/>
+    <drop css:theme="#left-column" css:if-not-content="#portal-column-one"/>
+    <drop css:theme="#right-column" css:if-not-content="#portal-column-two"/>
+    <drop css:theme=".authenticated-load" css:if-content=".userrole-anonymous"/>
+    <drop css:theme="#anonymous-load" css:if-content=".userrole-authenticated"/>
+    <drop css:theme="#hasleftcol" css:if-not-content="#portal-column-one"/> 
+
+    <replace css:theme="#logo" css:content="#portal-logo"/>
+    <append css:theme=".footer" css:content="div#visual-portal-wrapper > div.row > script"/>
+
+    <append css:theme="#left-column-content"
+        css:content="#portletmanager-plone-leftcolumn"/>
+    <replace css:theme-children="#left-column-content">
+        <div>
+            <xsl:for-each css:select="#portal-column-one .portletWrapper">
+                <xi:include href="portlet-rules.xml"/>
+            </xsl:for-each>
+            <xsl:copy-of css:select="#portal-column-one .managePortletsLink"/>
+        </div>
+    </replace>
+
+    <append css:theme="#right-column-content"
+        css:content="#portletmanager-plone-rightcolumn"/>
+    <replace css:theme-children="#right-column-content">
+        <div>
+            <xsl:for-each css:select="#portal-column-two .portletWrapper">
+                <xi:include href="portlet-rules.xml"/>
+            </xsl:for-each>
+            <xsl:copy-of css:select="#portal-column-two .managePortletsLink"/>
+        </div>
+    </replace>
+    <append css:theme="#site-scripts" css:content="#portal-footer-wrapper > div > script"/>
+    <append css:theme="#site-scripts" css:content-children="#bottom-js"/>   
+    </rules>
+</rules>

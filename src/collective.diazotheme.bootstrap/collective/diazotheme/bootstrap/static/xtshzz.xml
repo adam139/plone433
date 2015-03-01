@@ -28,7 +28,7 @@
     <drop css:content=".documentActions" />
  <!--   <drop css:content="#kssPortalMessage"/>  -->
     
-    <after css:theme="meta[http-equiv='X-UA-Compatible']" 
+		<after css:theme="meta[http-equiv='X-UA-Compatible']" 
         content="/html/head/meta | /html/head/link" />
 		<copy css:theme="#topsearchbox" css:content="#portal-searchbox form" attributes="action"/>
     <copy css:theme="#topsearchbox .search-query" css:content="#portal-searchbox form .searchField" attributes="placeholder"/>
@@ -97,7 +97,7 @@
         <replace theme="/html/body"
             content="/html/body"/>
   </rules>
-  <rules css:if-content="#homepage">
+  <rules css:if-content="#homepage">	
     	<replace css:content-children="#homepage" css:theme-children="#homepage"/>
     	<before css:content="#friendly-link" css:theme-children=".footer"/>
     	<replace css:content=".footer" css:theme-children=".footer .row"/>  	
@@ -137,7 +137,6 @@
             	<xsl:copy-of css:select=".portalMessage"/>
                 <xsl:if css:test="#content-views">            	               
                 		<div id="action-bar">
-
                     <ul class="nav nav-tabs">
                     <xsl:for-each css:select="#content-views > li">
                         <xi:include href="navigation-rules.xml"/>

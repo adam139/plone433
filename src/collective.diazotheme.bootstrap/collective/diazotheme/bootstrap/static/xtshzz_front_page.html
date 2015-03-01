@@ -95,6 +95,13 @@
     <script src="dist/js/bootstrap.min.js"></script>   
     <script src="dist/js/kuputabs.js"></script>
     <script src="dist/js/rolltable.js"></script>
+    <script>
+    	  $("ul").on("click","a.state-missing-value",function() {
+            		var url = $(this).attr( "href" );
+            		window.location.href = url + "/@@view";
+            		return false;
+            		}); 
+    </script>
     <div id="site-scripts"></div>
  </body>
 </html>

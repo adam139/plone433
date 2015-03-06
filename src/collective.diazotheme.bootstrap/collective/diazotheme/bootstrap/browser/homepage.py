@@ -242,7 +242,7 @@ class HomepageView(grok.View):
         return "http://315ok.org/"
     
     @memoize
-    def rollresult(self,collection=None,limit=7):
+    def rollresult(self,collection=None,limit=7,words=16):
         """return roll zone html"""
         
         if collection == None:
@@ -270,7 +270,7 @@ class HomepageView(grok.View):
         for i in range(brainnum):
             objurl = braindata[i].getURL()
             objtitle = braindata[i].Title
-            objtitle = self.cropTitle(objtitle, 12)
+            objtitle = self.cropTitle(objtitle, words)
             modifydate = braindata[i].modified.strftime('%Y-%m-%d')
             
             out = """<li class="rollitem">

@@ -242,7 +242,7 @@ class HomepageView(grok.View):
         return "http://315ok.org/"
     
     @memoize
-    def rollresult(self,collection=None,limit=7,words=16):
+    def rollresult(self,collection=None,limit=7,words=15):
         """return roll zone html"""
         
         if collection == None:

@@ -242,8 +242,8 @@
     </replace>
 
 
-    <append css:theme="#site-scripts" css:content="#portal-footer-wrapper > div > script"/>
-    <append css:theme="#site-scripts" css:content-children="#bottom-js"/>
+    <append css:theme="body" css:content="#portal-footer-wrapper > div > script"/>
+    <append css:theme="body" css:content-children="#bottom-js"/>
    
     </rules>
 </rules>

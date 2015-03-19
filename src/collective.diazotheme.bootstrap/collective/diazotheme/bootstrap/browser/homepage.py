@@ -614,7 +614,7 @@ class HomepageView(grok.View):
         ctobj = self.catalog()(queries)
         if ctobj is not None:
                 # pass on batching hints to the catalog
-            braindata = ctobj[0].getObject().queryCatalog(batch=True, b_size=limit)
+            braindata = ctobj[0].getObject().queryCatalog(batch=True, b_size=limit, sort_on="created")
         else:           
             braindata = None
         return braindata        
